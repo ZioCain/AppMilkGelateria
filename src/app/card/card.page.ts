@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { APIService } from '../../services/api.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
 	selector: 'app-card',
@@ -18,6 +20,14 @@ export class CardPage {
 		{index:9, fill: false},
 		{index:10, fill: false}
 	];
-	constructor() {}
-
+	logged:boolean=false;
+	card:any;
+	constructor(
+		private api:APIService,
+		private user:UserService
+	){
+		var userData = this.user.GetUserData();
+		var card = this.user.GetCard();
+		this.logged = userData!==null;
+	}
 }

@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { APIService } from './api.service';
 
 @Injectable({
 	providedIn: 'root'
 })
-export class APIService {
+export class UserService {
 	private readonly SERVER:string = "https://app.milk.it/";
 	constructor(
-		private http:HttpClient
+		private http:HttpClient,
+		private api:APIService
 	){}
 	public Login(email:string, password:string):Observable<any>{
-		return this.http.post(this.SERVER+"login",{
-			email:email,
-			password:password
-		});
+		return this.api.Login(email, password).pipe(
+
+		);
 	}
 	public LoginApple():Observable<any>{
 		return this.http.post('https://auth.apple.com/',{});
@@ -25,7 +26,15 @@ export class APIService {
 	public LoginGoogle():Observable<any>{
 		return this.http.post('https://auth.apple.com/',{});
 	}
-	public GetOfferte():Observable<any>{
-		return this.http.get(this.SERVER+"offerte");
+	public GetUserData():any{
+		var data=localStorage.getItem('userData');
+		return data!==null?JSON.parse(data):null;
+	}
+	public SaveUserData(data:any){
+		localStorage.setItem('userData', JSON.stringify(data));
+	}
+	public GetCard(){
+		var data=localStorage.getItem('card');
+		return data!==null?JSON.parse(data):null;
 	}
 }

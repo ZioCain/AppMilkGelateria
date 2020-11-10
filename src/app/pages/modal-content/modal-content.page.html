@@ -1,0 +1,29 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Login</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+	<ng-container *ngIf="show==='login'">
+	<h3>Effettua il login</h3>
+	<form [formGroup]="login">
+		<ion-input matInput type="email" formControlName="email" placeholder="E-mail"></ion-input>
+		<ion-input matInput type="password" formControlName="password" placeholder="Password"></ion-input>
+		<ion-button (click)="Login()">Login</ion-button>
+	</form>
+	<h3 (click)="show='signin'">Oppure registrati</h3>
+	</ng-container>
+	<ng-container *ngIf="show==='signin'">
+	<h3>Registrati</h3>
+	<form [formGroup]="signin">
+		<ion-input matInput type="text" formControlName="nome" placeholder="Nome"></ion-input>
+		<ion-input matInput type="text" formControlName="cognome" placeholder="Cognome"></ion-input>
+		<ion-input matInput type="email" formControlName="email" placeholder="E-mail"></ion-input>
+		<ion-input matInput type="password" formControlName="password" placeholder="Password"></ion-input>
+		<ion-button (click)="Signin()">Registrati</ion-button>
+	</form>
+	<h3 (click)="show='login'">Oppure effettua il login</h3>
+	</ng-container>
+	<ion-button (click)="Back()" color="danger" fill="outline">Torna indietro</ion-button>
+</ion-content>

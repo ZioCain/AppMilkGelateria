@@ -6,10 +6,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+	<ng-container *ngIf="logged">
 	<div class="card">
+		<div class="card-header">
+			<img src="assets/milk-gelateria.jpg">
+			<p>Al completamento di questa tessera potrai chiedere un gelato omaggio!</p>
+		</div>
 		<div *ngFor="let x of spots" class="spot">
 			<div class="spot-title">{{ x.index }}</div>
 			<img *ngIf="x.fill" src="assets/milk-gelateria.jpg">
 		</div>
 	</div>
+	<div class="qrcode">
+		<ngx-qrcode elementType="img" value="ciao" cssClass="aclass" errorCorrectionLevel="L" width="400"></ngx-qrcode>
+	</div>
+	</ng-container>
+	<ng-container *ngIf="!logged">
+	<app-must-login></app-must-login>
+	</ng-container>
 </ion-content>
