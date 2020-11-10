@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
 	<ion-toolbar>
-		<img id="logo" src="assets/milk-gelateria.jpg">
+		<img id="logo" src="assets/milk-gelateria.png">
 		<ion-title class="d-inline-block">Milk - La tua CARD</ion-title>
 	</ion-toolbar>
 </ion-header>
@@ -9,12 +9,12 @@
 	<ng-container *ngIf="logged">
 	<div class="card">
 		<div class="card-header">
-			<img src="assets/milk-gelateria.jpg">
+			<img src="assets/milk-gelateria.png">
 			<p>Al completamento di questa tessera potrai chiedere un gelato omaggio!</p>
 		</div>
 		<div *ngFor="let x of spots" class="spot">
 			<div class="spot-title">{{ x.index }}</div>
-			<img *ngIf="x.fill" src="assets/milk-gelateria.jpg">
+			<img *ngIf="x.fill" src="assets/milk-gelateria.png">
 		</div>
 	</div>
 	<div class="qrcode">
