@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<img id="logo" src="assets/milk-gelateria.jpg">
+		<ion-title class="d-inline-block">Milk - La tua CARD</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<div class="card">
+		<div *ngFor="let x of spots" class="spot">
+			<div class="spot-title">{{ x.index }}</div>
+			<img *ngIf="x.fill" src="assets/milk-gelateria.jpg">
+		</div>
+	</div>
+</ion-content>

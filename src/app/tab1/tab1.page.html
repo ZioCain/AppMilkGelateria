@@ -1,17 +1,21 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<img id="logo" src="assets/milk-gelateria.jpg">
+		<ion-title class="d-inline-block">Milk Gelateria</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+	<ion-card *ngFor="let off of offerte">
+		<img [src]="off.image" >
+		<ion-card-content>
+			<ion-card-title>{{ off.title }}</ion-card-title>
+			<p>{{ off.text }}</p>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+			<ion-button expand="block" fill="outline" (click)="Ordina(off)">
+				<ion-icon slot="start" name="ice-cream-outline"></ion-icon>
+				<div>Ordina subito!</div>
+			</ion-button>
+		</ion-card-content>
+	</ion-card>
 </ion-content>
